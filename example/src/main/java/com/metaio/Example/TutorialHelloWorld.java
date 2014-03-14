@@ -8,6 +8,7 @@ import com.metaio.sdk.ARViewActivity;
 import com.metaio.sdk.MetaioDebug;
 import com.metaio.sdk.jni.IGeometry;
 import com.metaio.sdk.jni.IMetaioSDKCallback;
+import com.metaio.sdk.jni.Rotation;
 import com.metaio.sdk.jni.Vector3d;
 import com.metaio.tools.io.AssetsManager;
 
@@ -44,8 +45,11 @@ public class TutorialHelloWorld extends ARViewActivity {
                 mModel = metaioSDK.createGeometry(metaioManModel);
                 if (mModel != null) {
                     // Set geometry properties
-                    mModel.setScale(new Vector3d(4.0f, 4.0f, 4.0f));
-
+                    mModel.setScale(new Vector3d(1.0f, 1.0f, 1.0f));
+                    mModel.setTranslation(new Vector3d(64f, 64f, 196f));
+                    Rotation rotation = new Rotation();
+                    rotation.setFromEulerAngleRadians(new Vector3d((float) Math.PI/6, 0f, (float) Math.PI/8));
+                    mModel.setRotation(rotation);
                 } else
                     MetaioDebug.log(Log.ERROR, "Error loading geometry: " + metaioManModel);
             }

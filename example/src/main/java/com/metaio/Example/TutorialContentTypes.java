@@ -107,7 +107,7 @@ public class TutorialContentTypes extends ARViewActivity {
                 mMoviePlane = metaioSDK.createGeometryFromMovie(moviePath, true);
                 if (mMoviePlane != null) {
                     mMoviePlane.setScale(2.0f);
-                    mMoviePlane.setRotation(new Rotation(0f, 0f, (float) -Math.PI / 2));
+                    mMoviePlane.setRotation(new Rotation(0f, (float) Math.PI/3, (float) -Math.PI / 2));
                     MetaioDebug.log("Loaded geometry " + moviePath);
                 } else {
                     MetaioDebug.log(Log.ERROR, "Error loading geometry: " + moviePath);
